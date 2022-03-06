@@ -21,8 +21,15 @@ android {
 
     buildTypes {
         release {
+            debuggable false
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            debuggable true
+            minifyEnabled false
+
         }
     }
 
@@ -89,4 +96,8 @@ dependencies {
     // Hawk
     def hawk_version = '2.0.1'
     implementation "com.orhanobut:hawk:$hawk_version"
+
+    // Logger
+    def logger_version = '2.2.0'
+    implementation "com.orhanobut:logger:$logger_version"
 }
