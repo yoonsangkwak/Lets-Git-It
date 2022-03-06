@@ -1,6 +1,7 @@
 package site.yoonsang.letsgitit
 
 import android.app.Application
+import androidx.appcompat.app.AppCompatDelegate
 import com.orhanobut.hawk.Hawk
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
@@ -12,8 +13,13 @@ class Application: Application() {
     override fun onCreate() {
         super.onCreate()
 
+        setNotAllowedDarkMode()
         initLogger()
         initHawk()
+    }
+
+    private fun setNotAllowedDarkMode() {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
 
     private fun initLogger() {
