@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">Let\'s Git it</string>
+    <string name="app_name">렛츠깃잇</string>
+
+    <!-- 공통 네트워크 에러 -->
+    <string name="error_type_http_exception">error_type_http_exception</string>
+    <string name="error_type_socket_time_out_exception">error_type_socket_time_out_exception</string>
+    <string name="error_type_unknown_host_exception">error_type_unknown_host_exception</string>
+    <string name="error_type_connect_exception">error_type_connect_exception</string>
+    <string name="error_type_other_exception">error_type_other_exception</string>
+
+    <!-- 공통 -->
+    <string name="refresh">새로고침</string>
 </resources>
