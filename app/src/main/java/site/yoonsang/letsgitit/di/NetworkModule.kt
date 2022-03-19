@@ -9,23 +9,19 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import site.yoonsang.data.api.GithubApi
 import site.yoonsang.letsgitit.BuildConfig
-import site.yoonsang.letsgitit.constants.CONNECT_TIMEOUT
-import site.yoonsang.letsgitit.constants.GITHUB_BASE_URL
-import site.yoonsang.letsgitit.constants.READ_TIMEOUT
-import site.yoonsang.letsgitit.constants.WRITE_TIMEOUT
-import site.yoonsang.letsgitit.network.GithubApi
 import java.util.concurrent.TimeUnit
-import javax.inject.Qualifier
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
 @Module
 object NetworkModule {
 
-    @Qualifier
-    @Retention(AnnotationRetention.BINARY)
-    annotation class Github
+    private const val GITHUB_BASE_URL = "https://api.github.com/"
+    private const val CONNECT_TIMEOUT = 10L
+    private const val WRITE_TIMEOUT = 30L
+    private const val READ_TIMEOUT = 30L
 
     @Singleton
     @Provides
