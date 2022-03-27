@@ -1,4 +1,4 @@
-package site.yoonsang.presentation.utils
+package site.yoonsang.letsgitit.utils
 
 import androidx.annotation.MainThread
 import androidx.annotation.Nullable

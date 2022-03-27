@@ -1,8 +1,8 @@
-package site.yoonsang.presentation.utils
+package site.yoonsang.letsgitit.utils
 
 import android.content.Context
 import android.content.Intent
-import site.yoonsang.presentation.ui.main.MainActivity
+import site.yoonsang.letsgitit.ui.main.MainActivity
 
 object IntentProvider {
 

@@ -46,15 +46,25 @@ android {
 }
 
 dependencies {
-    implementation project(path: ':presentation')
     implementation project(path: ':domain')
     implementation project(path: ':data')
+    // Test
+    def junit_version = '4.13.2'
+    testImplementation "junit:junit:$junit_version"
+    def junit_test_version = '1.1.3'
+    androidTestImplementation "androidx.test.ext:junit:$junit_test_version"
+    def espresso_core_version = '3.4.0'
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_core_version"
 
     // Android
     def androidX_core_version = '1.7.0'
     implementation "androidx.core:core-ktx:$androidX_core_version"
     def androidX_appCompat_version = '1.4.1'
     implementation "androidx.appcompat:appcompat:$androidX_appCompat_version"
+    def android_material_version = '1.5.0'
+    implementation "com.google.android.material:material:$android_material_version"
+    def constraint_layout_version = '2.1.3'
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
 
     // hilt
     def hilt_version = '2.40.5'

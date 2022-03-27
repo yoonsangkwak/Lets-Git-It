@@ -1,4 +1,4 @@
-package site.yoonsang.presentation.ui
+package site.yoonsang.letsgitit.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
