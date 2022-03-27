@@ -1,10 +1,8 @@
 package site.yoonsang.data.model
 
+import com.google.gson.annotations.SerializedName
+
 data class ResponseRepoLicense(
-    val html_url: String,
-    val key: String,
-    val name: String,
-    val node_id: String,
-    val spdx_id: String,
-    val url: String
+    @SerializedName("key") val key: String? = null,
+    @SerializedName("name") val name: String? = null,
 )

@@ -7,9 +7,9 @@ data class RepoInfo(
     val htmlUrl: String,
     val id: Int,
     val language: String,
-    val license: RepoLicense,
+    val license: RepoLicense?,
     val name: String,
-    val owner: RepoOwner,
-    val `private`: Boolean,
+    val owner: RepoOwner?,
+    val isPrivate: Boolean,
     val stargazersCount: Int,
 )

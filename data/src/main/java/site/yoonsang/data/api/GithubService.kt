@@ -7,7 +7,7 @@ import site.yoonsang.data.model.ResponseSearchedRepos
 interface GithubService {
 
     @GET("/search/repositories")
-    fun getSearchedRepos(
+    suspend fun getSearchedRepos(
         @Query("q") query: String,
         @Query("sort") sort: String = "stars",
         @Query("order") order: String = "desc",
