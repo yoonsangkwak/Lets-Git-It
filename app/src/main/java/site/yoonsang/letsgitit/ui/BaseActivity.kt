@@ -1,4 +1,4 @@
-package site.yoonsang.presentation.ui
+package site.yoonsang.letsgitit.ui
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes
@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import site.yoonsang.presentation.R
+import site.yoonsang.letsgitit.R
 
 abstract class BaseActivity<T : ViewDataBinding>(@LayoutRes private val layoutResId: Int) :
     AppCompatActivity() {
