@@ -5,11 +5,12 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import site.yoonsang.data.api.GithubApi
+import site.yoonsang.data.api.GithubService
 import site.yoonsang.letsgitit.BuildConfig
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
@@ -35,11 +36,22 @@ object NetworkModule {
         }
     }
 
-    @Github
     @Singleton
     @Provides
-    fun provideOkhttpClient(logger: HttpLoggingInterceptor): OkHttpClient {
+    fun provideAcceptHeaderInterceptor(): Interceptor {
+        return Interceptor { chain: Interceptor.Chain ->
+            val request = chain.request().newBuilder()
+                .addHeader("accept", BuildConfig.ACCESS_TOKEN)
+                .build()
+            chain.proceed(request)
+        }
+    }
+
+    @Singleton
+    @Provides
+    fun provideOkhttpClient(logger: HttpLoggingInterceptor, acceptHeader: Interceptor): OkHttpClient {
         return OkHttpClient.Builder().apply {
+            addInterceptor(acceptHeader)
             connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
             writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS)
             readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
@@ -48,10 +60,9 @@ object NetworkModule {
         }.build()
     }
 
-    @Github
     @Singleton
     @Provides
-    fun provideRetrofit(@Github okHttpClient: OkHttpClient): Retrofit {
+    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(GITHUB_BASE_URL)
@@ -59,9 +70,8 @@ object NetworkModule {
             .build()
     }
 
-    @Github
     @Singleton
     @Provides
-    fun provideGithubService(@Github retrofit: Retrofit): GithubApi =
-        retrofit.create(GithubApi::class.java)
+    fun provideGithubService(retrofit: Retrofit): GithubService =
+        retrofit.create(GithubService::class.java)
 }
