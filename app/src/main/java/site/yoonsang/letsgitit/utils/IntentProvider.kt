@@ -2,7 +2,7 @@ package site.yoonsang.letsgitit.utils
 
 import android.content.Context
 import android.content.Intent
-import site.yoonsang.letsgitit.ui.main.MainActivity
+import site.yoonsang.letsgitit.ui.activity.MainActivity
 
 object IntentProvider {
 

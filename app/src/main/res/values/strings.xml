@@ -10,4 +10,6 @@
 
     <!-- 공통 -->
     <string name="refresh">새로고침</string>
+    <string name="search_repository">Repo 검색</string>
+    <string name="search_user">User 검색</string>
 </resources>
