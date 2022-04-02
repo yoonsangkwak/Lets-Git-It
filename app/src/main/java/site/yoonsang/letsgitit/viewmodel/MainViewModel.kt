@@ -1,4 +1,4 @@
-package site.yoonsang.letsgitit.ui.main
+package site.yoonsang.letsgitit.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
